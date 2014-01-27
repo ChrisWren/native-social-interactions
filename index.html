@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Native social sharing on mobile and tablet web</title>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="main.css">
+        <link rel="icon" href="images/iOS7Share.png" class="favicon"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="description" value="This page documents the current state of affairs for native social sharing on major mobile operating systems and social media apps">
+        <!--   Twitter cards metadata     -->
+        <meta name="twitter:site" content="@chrisawren">
+        <meta name="twitter:title" content="Native social interactions on mobile and tablet web">
+        <meta name="twitter:creator" content="@chrisawren">
+        <meta name="twitter:description" content="This page documents the current state of native social interactions on major mobile operating systems and social media apps.">
+        <meta name="twitter:image:src" content="http://chrisawren.com/images/posts/microstates/micros.png">
+    </head>
+    <body>
+        <div class="page-header">
+        <h1>Native social interactions on mobile and tablet web</h1>
+            </div>
+        <p class="lead">The goal of this document is to describe the current availability of native social interactions on major mobile operating systems and social media apps. This information can be used to determine which URLs your mobile/tablet website should use to allow your users to interact effectively. Note that this is a living document with the last tested app/website/OS versions specified, so please <a href="https://github.com/ChrisWren/native-social-share/issues">file an issue</a> or submit a pull request with any new findings!</p>
+       <div class="page-header">
+         <h2>Descriptions of native app entry points</h2>
+           </div>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#native-url-schemes" data-toggle="tab">Native URL Schemes</a></li>
+            <li ><a href="#smart-banners" data-toggle="tab">iOS Smart Banners</a></li>
+            <li><a href="#android-intents" data-toggle="tab">Android Intents</a></li>
+            
+            <li><a href="#sharing-icons" data-toggle="tab">Browser Sharing Icons</a></li>
+        </ul>
+        
+        <div class="tab-content">
+            <div class="tab-pane active" id="native-url-schemes">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div id="carousel-native-url-scheme" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-native-url-scheme" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-native-url-scheme" data-slide-to="1"></li>
+                                <li data-target="#carousel-native-url-scheme" data-slide-to="2"></li>
+                            </ol>
+                            
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="images/invalid-url-scheme-ios-iphone5s.png" alt="...">
+                                </div>
+                                <div class="item">
+                                    <img src="images/invalid-url-scheme-android-s4.png" alt="...">
+                                </div>
+                                <div class="item">
+                                    <img src="images/invalid-url-scheme-windows-lumia.png" alt="...">
+                                    
+                                </div>
+                            </div>
+                            
+                            <a class="left carousel-control" href="#carousel-native-url-scheme" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-native-url-scheme" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <h4>Native URL Schemes</h4>
+                        <p>
+                            To open an app directly from a website, you can use native URL schemes. You may be familiar with the <code>mailto</code> scheme which launches an email client on the user's device via a url like <code>mailto:myemail@mydomain.com</code>, but may not know that this concept also extends to third-party apps.</p>
+                        
+                        <p>     By using native URL schemes, you can make social sharing links on mobile and tablet devices open directly into specific views within apps. For example, this url would open the native Twitter app to a profile page on iOS and Android: <code>twitter://user?screen_name=chrisawren</code>.</p>
+                        
+                        <p>   This approach is the most direct way to deliver a user to a native app, but it comes at the price of a potential alert on iOS, a 404 page on Android, or a prompt to search for an app on Windows Phone 8 if the user doesn't have the app.
+                            
+                        </p>
+                        On the <span class="invisible-xs">left</span><span class="visible-xs">above</span> are the results of a user clicking on a native link without having the corresponding native app installed:
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="smart-banners">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <img src="images/dropbox-smartbanner.png" alt="" class="img-responsive">
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <h4>iOS Smart Banners</h4>
+                        <p>Websites can link into their corresponding apps on iOS using <a href="https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html">smart banners</a>. Smart banners are <em>smart</em> in the sense that they are aware if you have an app installed so that they either prompt you to open the app or install it.
+                        </p>
+                        A cool feature of smart banners, which is not implemented on many major social media platforms today, is the ability to map a web url to a specific view within a native app. For example you could link someone to your Twitter profile page on the web and allow them to optionally open your profile in the iOS app if Twitter implemented smart banners with <code>app-arguments</code> metadata.</div>
+                </div>
+                
+            </div>
+            
+            <div class="tab-pane" id="android-intents">
+                <div class="media">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <img src="images/android-intent-s4.png" alt="" class="img-responsive">
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <h4>Android Intents</h4>
+                            <p>    Android has a concept called <a href="http://developer.android.com/guide/components/intents-filters.html">intents</a> where apps register what types of URLs they can respond to, and whenever a user requests a resource that matches one of the intents, the app is listed among other apps for the user to open.
+                                To the left is the result of clicking on a link with the <code>mailto</code> URL scheme on a Samsung Galaxy S3.
+                            </p>
+                            
+                            <p>
+                                As a developer this is helpful, because you can use regular <code>http</code> web URLs(provided the app lists http URLs as an accepted intent) and allow the user to choose between opening the link via a browser or app. It also gracefully degrades to going directly to the website if the user doesn't have a particular app installed, eliminating the  problem of potential error pages when using native URLs.
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-pane" id="sharing-icons">
+                
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                                    <img src="images/ftlabs-browser-social-share-ios.png" alt="" class="img-responsive">
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <h4>Browser Sharing Icons</h4>
+                        <p>   Some sites display popups on iOS Safari to coach the user about using the browser's native social sharing button to add their site to their phone's home screen. On the left is an example from the <a href="http://app.ft.com">Financial Times web app.</a></p>
+                        
+                        
+                        <p> Typically this has been used to remind users that they can add a site to their home screen for easy access, but it could also be used as a technique to remind the user about the native share provided by the browser. 
+                        </p>
+                        <p> On Android this is particularly advantageous, because it lets the user choose how to share based on the apps they have installed, whereas iOS only provides you a few sharing options. However, the location and appearance of the icon for native browser sharing is not as predictable on Android since it is such an open OS with many hardware vendors and versions in the wild.
+                        </p>
+                        <h3>Browser/OS Native Sharing icons</h3>
+                        <p> You can detect the browser via <code>window.navigator.userAgent</code> and use the appropriate browser icon if you opt to use this sharing technique. Click <a href="browser-share-icons.zip">here</a> to download a .zip with all the below browser sharing icons.</p>
+                        <div class="row">
+                            <div class="col-xs-3 col-md-3">
+                                <h4 >iOS7 Safari</h4>
+                                <img class="img-responsive" src="images/iOS7Share.png" alt="">
+                            </div>
+                            <div class="col-xs-3 col-md-3">
+                                <h4 >Android Chrome</h4>
+                                <img class="img-responsive" src="images/AndroidChrome.png" alt="">
+                            </div>
+                            <div class="col-xs-3 col-md-3">
+                                <h4 >iOS6 Safari</h4>
+                                <img class="img-responsive" src="images/iOS6Share.png" alt="">
+                            </div>
+                            <div class="col-xs-3 col-md-3">
+                                <h4>Windows Phone 8</h4>
+                                <img class="img-responsive" src="images/WindowsPhone8.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-header">
+            <h2>Native app entry points for major social media websites</h2>
+                </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-condensed">
+                    <tr>
+                        <th>Mobile Website</th>
+                        <th>iOS smart banners</th>
+                        <th>Mobile site auto redirects to app</th>
+                        <th>Mobile site prompts users to open app</th>
+                    </tr>
+                    <tr>
+                        <td>m.facebook.com - 1/26/14</td>
+                        <td class="danger"></td>
+                        
+                        <td class="danger"></td>
+                        <td class="danger"></td>
+                    </tr>
+                    <tr>
+                        <td>m.twitter.com - 1/26/14</td>
+                        <td class="danger"></td>
+                        <td class="danger"></td>
+                        <td class="success">Prompts user to install</td>
+                    </tr>
+                    <tr>
+                        <td>touch.www.linkedin.com - 1/26/14</td>
+                        <td class="danger"></td>
+                        <td class="danger"></td>
+                        <td class="success">Prompts user to install</td>
+                    </tr>
+                    <tr>
+                        <td>m.pinterest.com - 1/26/14</td>
+                        <td class="success"></td>
+                        <td class="warning">After user agrees to open web links within app</td>
+                        <td class="success">Prompts user to open links with app in future</td>
+                    </tr>
+                    <tr>
+                        <td>tumblr.com - 1/26/14</td>
+                        <td class="danger"></td>
+                        <td class="danger"></td>
+                        <td class="success">Prompts user to install or open</td>
+                    </tr>              <tr>
+                    <td>instagram.com - 1/26/14</td>
+                    <td class="danger"></td>
+                    <td class="danger"></td>
+                    <td class="success">Prompts user to install or open</td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+        <div class="page-header">
+            <h2>Social media native URLs and intents</h2>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-s-6 col-md-4">
+                                                            <div class="thumbnail">
+                    
+                <img src="images/Facebook.png" alt="" class="img-responsive">
+
+              
+                    <div class="caption">                                                <div class="panel panel-default">
+                        
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Facebook</h4>
+                            
+                        </div>
+                        <div class="panel-body"> 
+                <dt>Profile - iOS & Android</dt>
+                <dd><a href="fb://profile/122869907730199">fb://profile/FB_ID</a></dd>
+            </div><div class="panel-footer">Versions: iOS 6.8, Android 3.9</div>
+        </div></div></div></div>
+            <div class="col-xs-12 col-s-6 col-md-4">
+                                            <div class="thumbnail">
+                    
+                <img class="img-responsive" src="images/twitter.png" alt="">
+              
+                    <div class="caption">                                                <div class="panel panel-default">
+                        
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Twitter</h4>
+                            
+                        </div>
+                        <div class="panel-body">            
+                <dt>Profile - iOS & Android</dt>
+                <dd><a href="twitter://user?screen_name=chrisawren">twitter://user?screen_name=USER_NAME</a></dd>
+                <dt>New Tweet - iOS & Android</dt>
+                <dd><a href="twitter://post?message=Native%20social%20interactions%20for%20mobile%20and%20tablet%20web:">twitter://post?message=MESSAGE_CONTENT</a></dd>
+                <dt>#hastag - iOS & Android</dt>
+                <dd><a href="twitter://search?query=%23gruntjs">twitter://search?query=%23HASHTAG</a></dd>
+            </div><div class="panel-footer">Versions: iOS 6.0.2, Android 4.1.10</div>
+            </div>
+        </div></div></div>
+            <div class="col-xs-12 col-s-6 col-md-4">
+                            <div class="thumbnail">
+                    
+        <img class="img-responsive" src="images/pinterest.png" alt="">                    
+                    <div class="caption">                                                <div class="panel panel-default">
+                        
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Pinterest</h4>
+                            
+                        </div>
+                        <div class="panel-body">
+
+                <dt>Profile - iOS only</dt>
+                <dd><a href="pinterest://user/chrisawren/">pinterest://user/USERNAME/</a></dd>
+                <dt>Board - iOS only</dt>
+                <dd><a href="pinterest://board/chrisawren/mens-fashion/">pinterest://board/USER_NAME/BOARD_NAME/</a></dd>
+                <dt>Pin - iOS only</dt>
+                <dd><a href="pinterest://pin/18718154674320156/">pinterest://pin/PIN_ID/</a></dd>
+            </div><div class="panel-footer">                <h5>Developer Docs: <a href="http://developers.pinterest.com/android/">Android</a> + <a href="http://developers.pinterest.com/ios/">iOS</a></h5>
+Versions: iOS 3.3.2, Android 1.9.5</div>
+        </div></div></div></div></div>
+        
+        <div class="row">
+            <div class="col-xs-12 col-s-6 col-md-4">
+                                <div class="thumbnail">
+                    
+     <img src="images/linkedin.png" alt="" class="img-responsive">
+                    
+                    <div class="caption">                                                <div class="panel panel-default">
+                        
+                        <div class="panel-heading">
+                            <h4 class="panel-title">LinkedIn</h4>
+                            
+                        </div>
+                        <div class="panel-body">
+          
+                <dt>Profile - iOS only</dt>
+                <dd><a href="linkedin://#profile/146477277">linkedin://#profile/PROFILE_ID</a></dd>
+            </div>
+                            <div class="panel-footer">Versions: iOS 7.1, Android 3.2.1 </div>
+                           
+</div></div></div>  </div>          
+            <div class="col-xs-12 col-s-6 col-md-4">
+                                <div class="thumbnail">
+                    
+                <img src="images/tumblr.png" alt="" class="img-responsive">
+                    
+                    <div class="caption">                                                <div class="panel panel-default">
+                        
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Tumblr</h4>
+                            
+                        </div>
+                        <div class="panel-body">
+                
+                <dt>Blog - iOS & Android</dt>
+                <dd><a href="tumblr://x-callback-url/blog?blogName=bryan">tumblr://x-callback-url/blog?blogName=BLOG_NAME</a></dd>
+                <dt>Post - iOS & Android</dt>
+                 <dd><a href="tumblr://x-callback-url/blog?blogName=bryan&postID=43724939726">tumblr://blog?blogName=BLOG_NAME&postID=POST_ID</a></dd>
+       
+           </div>                     <div class="panel-footer">                <h5>Developer Docs: <a href="https://github.com/tumblr/TMTumblrSDK#url-schemes">iOS</a></h5>
+Versions: iOS 3.5, Android 3.4.2 </div></div></div></div>
+             </div>
+            <div class="col-xs-12 
+                        col-s-6 col-md-4">
+                <div class="thumbnail">
+                    
+                    <img src="images/instagram.png" alt="" class="img-responsive">
+                    
+                    <div class="caption">                                                <div class="panel panel-default">
+                        
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Instagram</h4>
+                            
+                        </div>
+                        <div class="panel-body">
+                            
+                            <dt>Profile - iOS only</dt>
+                            <dd><a href="instagram://user?username=instagram">instagram://user?username=USER_NAME</a></dd>
+                            <dt>Location - iOS only</dt>
+                            <dd><a href="instagram://location?id=LOCATION_ID">instagram://location?id=LOCATION_ID</a></dd>
+                            <h5>Developer Docs: <a href="http://instagram.com/developer/iphone-hooks/">iOS</a></h5>
+                            
+                        </div>
+                        <div class="panel-footer">Versions: iOS 5.0.2, Android 5.0.5</div>
+                        </div></div></div></div>
+        </div>
+        <div class="page-header">
+            <h2>SMS support </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    
+                    
+                    <img src="images/android-messaging.png" alt="" class="img-responsive">
+                    <div class="caption">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Android Messaging</h4>
+                            </div>
+                            <div class="panel-body">
+                                <a href="sms:18001234567?body=android%20wins">sms:PHONE_NUMBER?body=MESSAGE</a>
+                            </div>
+                        </div>
+                        
+                        
+                    </div></div>
+            </div>    
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    
+                    <img src="images/hangouts.png" alt="" class="img-responsive">
+                    <div class="caption">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Google Hangouts</h4>
+                            </div>
+                            <div class="panel-body">
+                                <a href="sms:18001234567">sms:PHONE_NUMBER</a>
+                            </div>
+                            <div class="alert alert-info">Google Hangouts is the default messenger in Android 4.4.</div>
+                            
+                        </div>
+                    </div>
+                </div></div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    
+                    <img src="images/imessage.png" alt="">
+                    <div class="caption">                                                <div class="panel panel-default">
+                        
+                        <div class="panel-heading">
+                            <h4 class="panel-title">iOS Messages</h4>
+                        </div>
+                        <div class="panel-body">
+                            
+                            
+                            <a href="sms:18001234567">sms:PHONE_NUMBER</a>
+                            
+                        </div>                <div class="alert alert-danger">iOS will ignore the phone number if the <code>body</code> parameter is specified.</div>  </div></div>
+                </div></div>
+        </div>
+        <div class="responsive-table">
+        <table class="table table-bordered ">
+            <tr>
+                <th>App/Platform</th>
+                <th>Recipient</th>
+                <th>Body</th>
+            </tr>
+            <tr>
+                <td>Android Messaging(Android &lt; 4.4)</td>
+                <td class="success"></td>
+                <td class="success"></td>
+            </tr>
+            <tr>
+                <td>Google Hangouts(Android 4.4)</td>
+                <td class="success"></td>
+                <td class="danger"></td>
+            </tr>
+            <tr>
+                <td>iOS Messages(iOS 7.0.4)</td>
+                <td class="success"></td>
+                <td class="danger"></td>
+            </tr>
+        </table>
+        </div>
+        <div class="page-header">
+            <h2>Email support</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    
+                    <img src="images/iOSMail.png" alt="" class="img-responsive">
+                    
+                    <div class="caption">                                                <div class="panel panel-default">
+                        
+                        <div class="panel-heading">
+                            <h4 class="panel-title">iOS Mail</h4>
+                        </div>
+                        <div class="panel-body">
+                            
+                            <a href="mailto:example@example.com?subject=mysubject&body=<img src='http://userserve-ak.last.fm/serve/500/40221935/In%2Bthe%2BAeroplane%2BOver%2Bthe%2BSea%2Bpng.png'>">mailto:RECIPIENT?subject=SUBJECT&body=BODY_WITH_HTML</a>
+                        </div></div>
+                    </div></div></div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    
+                    <img src="images/gmail.png" alt="" class="img-responsive">
+                    
+                    <div class="caption">                                                <div class="panel panel-default">
+                        
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Android - Gmail</h4>
+                        </div>
+                        <div class="panel-body">
+                            
+                            
+                            <a href="mailto:example@example.com?subject=mysubject&body=Visit my site at chrisawren.com">mailto:RECIPIENT?subject=SUBJECT&body=BODY_WITHOUT_HTML</a>
+                        </div></div></div></div></div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    
+                    <img src="images/ymail.png" alt="" class="img-responsive">
+                    
+                    <div class="caption">                                                <div class="panel panel-default">
+                        
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Android - Y! Mail</h4>
+                        </div>
+                        <div class="panel-body">
+                            <a href="mailto:example@example.com">mailto:RECIPIENT</a>
+                        </div>
+                        </div></div></div></div></div>
+                        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Platform/App</th>
+                    <th>Recipient</th>
+                    <th>Subject</th>
+                    <th>Body</th>
+                    <th>HTML allowed in body</th>
+                </tr>
+                <tr>
+                    <td>iOS 7.0.4 Mail</td>
+                    <td class="success"></td>
+                    <td class="success"></td>
+                    <td class="success"></td>
+                    <td class="success"></td>
+                </tr>
+                <tr>
+                    <td>Android - Gmail 4.7.2</td>
+                    <td class="success"></td>
+                    <td class="success"></td>
+                    <td class="success"></td>
+                    <td class="danger"></td>
+                </tr>
+                <tr>
+                    <td>Android - Y! Mail 3.0.18.1211742</td>
+                    <td class="success"></td>
+                    <td class="danger"></td>
+                    <td class="danger"></td>
+                    <td class="danger"></td>
+                </tr>
+            </table>
+            </div>
+            <script src="main.js"></script>
+            <hr>
+            <div class="visible-md visible-lg">
+                <a href="https://github.com/ChrisWren/native-social-share"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a></div>
+            <div class="footer">
+                <ul class="list-inline">
+                    <li class="footer-link">
+                        <iframe src="http://ghbtns.com/github-btn.html?user=ChrisWren&repo=native-social-share&type=fork"
+                                allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        <!-- Place this tag where you want the +1 button to render. -->
+                        <div class="g-plusone" data-size="medium" data-annotation="none" data-width="300"></div>
+                        
+                        <!-- Place this tag after the last +1 button tag. -->
+                        <script type="text/javascript">
+                            (function() {
+                                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                po.src = 'https://apis.google.com/js/platform.js';
+                                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                            })();
+                        </script>
+                    </li><li class="muted">·</li>
+                    <li>
+                        <a href="https://github.com/ChrisWren/native-social-share/issues" class="footer-link">Report an issue</a>
+                    </li>
+                    <li class="muted">·</li>
+                    <li >&#169; 2014 <a href="http://chrisawren.com">Chris Wren</a> & contributors</li>
+                </ul>
+            </div>
+        </body>
+    </html>

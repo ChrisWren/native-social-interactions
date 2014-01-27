@@ -1,0 +1,30 @@
+body {
+padding: 0 0 0 10px;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.footer-link {
+    vertical-align: top;
+}
+
+.thumbnail img {
+  width: 120px;
+  padding: 10px;
+}
+
+.thumbnail {
+/*    border: none;*/
+}
+
+.carousel-inner .item img,  .col-md-6 > img{
+    padding: 50px;
+}
+
+.panel-body {
+    overflow-wrap: break-word;
+}
+
+.carousel.slide, .item, .tab-pane {
+    min-height: 679px;
+}
