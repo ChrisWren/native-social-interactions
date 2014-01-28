@@ -13,9 +13,6 @@ padding: 0 0 0 10px;
   padding: 10px;
 }
 
-.thumbnail {
-/*    border: none;*/
-}
 
 .carousel-inner .item img,  .col-md-6 > img{
     padding: 50px;
@@ -26,5 +23,10 @@ padding: 0 0 0 10px;
 }
 
 .carousel.slide, .item, .tab-pane {
-    min-height: 679px;
+    min-height: 689px;
+}
+
+.carousel-control.right, .carousel-control.left {
+    color: gray;
+    background-image: none;
 }
